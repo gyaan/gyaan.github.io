@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am software developer love coding, programming and system design. Love to solve problem using computation.
 
-### More Information
+### Details about blog
 
-A place to include any other types of information that you'd like to include about yourself.
+I love to share the information and knowledge with others. It help me to learn more and learn in way so that i can teach someone same thing, hence I have started this blog hope this will help you too. 
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[gyaan1334@gmail.com](mailto:gyaan1334@gmail.com)

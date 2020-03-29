@@ -110,5 +110,4 @@ Code snippet for above mentioned process
 	log.Println("Selected rows for USA arrival:")
 	displayRecords(rows)
 ```
-
-you can find complete script [here](https://gist.github.com/gyaan/93a00e88293d7af77f194eeb03dda7e6)
+<script src="https://gist.github.com/gyaan/93a00e88293d7af77f194eeb03dda7e6.js"></script>

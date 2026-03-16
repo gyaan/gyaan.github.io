@@ -1,21 +1,26 @@
 ---
 layout: post
-title: Working with different timezone in golang and PostgreSQL
+title: Working with Different Timezones in Go and PostgreSQL
 ---
-If your application runs in different timezone and there are database entries from different timezone then we need to very careful while storing and fetching the data in database.
 
-We should flow following strategies to keep data consistent and easy retrieval of data.
+When your application serves users across multiple timezones — or integrates with data sources that record timestamps in varying timezone contexts — handling time correctly becomes critical. A subtle mismatch between your application's timezone and your database's timezone can cause silent data corruption: queries return incorrect result sets, scheduled jobs fire at wrong times, and bugs are nearly impossible to reproduce in local development.
 
-1. Always store data in single timezone I will suggest keep it in UTC timezone. if you are using PostgreSQL then set default database time zone.
-2. Before storing data in database convert it to database time zone as mentioned above if your database timezone is UTC then convert the time in UTC timezone and store it.
-3. Before fetching data for different timezone convert the query time to database timezone so that we get correct result set.
-4. After fetching the result set convert the result set to querying timezone.  
+Here are the strategies I follow to keep time data consistent and make retrieval predictable.
 
-Below are examples of how to convert the time in different timezone, how to store it and how to fetch it.    
+### Core Strategies
 
-To understand data insert and select let say we have table called flights to store flights details with fields, flight_number, departure_time, arrival_time, status, departure_country, arrival_country.
+1. **Store all timestamps in a single timezone.** UTC is the standard choice. If you're using PostgreSQL, set the default database timezone to UTC explicitly rather than relying on system defaults.
 
-so in flights table there are two time fields departure_time and arrival_time corresponding to departure and arrival country which has different timezone.
+2. **Convert to the database timezone before writing.** If your database is set to UTC, every timestamp must be converted to UTC before it's inserted. Never store local time directly.
 
-Code snippet for above mentioned process 
+3. **Convert query parameters to the database timezone before reading.** When filtering by time for a specific timezone, convert the query bounds to UTC first — otherwise you'll get the wrong result set.
+
+4. **Convert result sets to the requested timezone after reading.** Transform timestamps back to the appropriate local timezone at the application layer, after the query returns.
+
+### Example
+
+Consider a `flights` table with `departure_time` and `arrival_time` fields, where departures and arrivals may originate from countries in different timezones.
+
+The code below demonstrates how to convert, insert, query, and transform these timestamps correctly in Go:
+
 <script src="https://gist.github.com/gyaan/93a00e88293d7af77f194eeb03dda7e6.js"></script>

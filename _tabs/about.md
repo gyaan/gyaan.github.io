@@ -1,7 +1,6 @@
 ---
-layout: page
-title: About
-permalink: /about/
+icon: fas fa-info-circle
+order: 4
 ---
 
 I'm Gyaneshwar Pardhi, an Engineering Manager with a strong background in distributed systems and backend infrastructure. I focus on building high-performing engineering teams and delivering reliable systems at scale.

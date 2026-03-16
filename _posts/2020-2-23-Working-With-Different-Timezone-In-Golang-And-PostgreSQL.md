@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Working with Different Timezones in Go and PostgreSQL
+date: 2020-02-23
+categories: [Engineering, Backend]
+tags: [golang, postgresql, databases, distributed-systems]
 ---
 
 When your application serves users across multiple timezones — or integrates with data sources that record timestamps in varying timezone contexts — handling time correctly becomes critical. A subtle mismatch between your application's timezone and your database's timezone can cause silent data corruption: queries return incorrect result sets, scheduled jobs fire at wrong times, and bugs are nearly impossible to reproduce in local development.

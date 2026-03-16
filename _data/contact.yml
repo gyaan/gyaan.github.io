@@ -1,0 +1,21 @@
+- type: github
+  icon: "fab fa-github"
+
+- type: twitter
+  icon: "fa-brands fa-x-twitter"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
+
+- type: stack-overflow
+  icon: "fab fa-stack-overflow"
+  url: "https://stackoverflow.com/users/565551/gyaneshwar-pardhi"
+
+# - type: linkedin
+#   icon: "fab fa-linkedin"
+#   url: ""
